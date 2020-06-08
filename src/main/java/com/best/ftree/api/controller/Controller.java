@@ -1,5 +1,7 @@
 package com.best.ftree.api.controller;
 
+import com.best.ftree.model.Person;
+import com.best.ftree.model.repository.PersonRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +21,14 @@ import java.util.List;
 @Validated
 public class Controller {
 
-//    @Autowired
-//    private StatusRepository repository;
+    @Autowired
+    private PersonRepository repository;
 
     @GetMapping("s")
     @ResponseStatus(HttpStatus.OK)
-    public String find() {
-        return "ok";
+    public List<Person> find() {
+        repository.deleteAllBy();
+
+        return repository.getAllBy();
     }
 }

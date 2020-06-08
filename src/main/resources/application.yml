@@ -3,6 +3,21 @@ spring:
     ansi:
       enabled: ALWAYS
 
+datasource:
+  driverClassName: org.postgresql.Driver
+  url: jdbc:postgresql://ec2-54-75-246-118.eu-west-1.compute.amazonaws.com:5432/dbjatc3so4i73t
+  username: wokrufrstwyltn
+  password: ac94e124a711accb013f75ec2515b000877fb4a6fd0c512790c40a43e4b41d86
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
 server:
   port: 8081
 
