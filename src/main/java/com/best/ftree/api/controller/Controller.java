@@ -129,8 +129,6 @@ public class Controller {
 
         repository.save(newPerson);
 
-        System.out.println(person.getPositions());
-
         return mapper.convert(newPerson);
     }
 }

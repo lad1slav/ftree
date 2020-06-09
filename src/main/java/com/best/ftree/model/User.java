@@ -1,6 +1,5 @@
 package com.best.ftree.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,18 +8,24 @@ import java.io.Serializable;
 
 @Getter
 @Entity
-@Table(name = "SocialLinks")
+@Table(name = "Users")
 @Setter
-public class SocialLinks implements Serializable {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", columnDefinition = "bigint", nullable = false)
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name = "person_id", nullable = false)
-    Person person;
+    @Column(name = "username", length = 50, unique = true)
+    String username;
 
-    @Column(name = "link", length = 250)
-    String link;
+    @Column(name = "password", length = 50)
+    String password;
+
+    @Column(name = "role", length = 50)
+    String role;
+
+    public User() {
+
+    }
 }

@@ -16,7 +16,7 @@ public interface PersonMapper {
 
     @Mapping(source = "parentId", target = "parentId")
     @Mapping(source = "positions", target = "positions")
-    PersonDto convert(Person item) ;
+    PersonDto convert(Person item);
 
     List<PersonDto> convert(List<Person> items);
 }
