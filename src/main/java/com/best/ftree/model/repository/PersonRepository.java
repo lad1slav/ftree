@@ -10,6 +10,8 @@ public interface PersonRepository  extends JpaRepository<Person, Long> {
 
     List<Person> getAllBy();
 
+    List<Person> getAllByParentId(Long id);
+
     Person getById(Long id);
 
     @Transactional

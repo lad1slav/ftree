@@ -57,6 +57,17 @@ public class Controller {
         return mapper.convert(repository.getById(id));
     }
 
+    @GetMapping("child")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Long> getChildByPerson(Long id) {
+        List<Long> childId = new ArrayList<>();
+        repository.getAllByParentId(id).forEach(child -> {
+            childId.add(child.getId());
+        });
+
+        return childId;
+    }
+
     @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
     public long deleteById(Long id) {
