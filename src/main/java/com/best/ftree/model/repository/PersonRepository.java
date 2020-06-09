@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface PersonRepository  extends JpaRepository<Person, Long> {
 
-    Person save(Person person);
-
     List<Person> getAllBy();
+
+    Person getById(Long id);
 
     @Transactional
     void deleteAllBy();
