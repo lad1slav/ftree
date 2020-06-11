@@ -4,24 +4,24 @@ class FamilyTree extends Component {
   render() {
     return (
       <div>
-      	<div class="search">
+      	<div className="search">
           <input type="text" placeholder="Find BESTie" />
-          <span><i class="fas fa-search"></i></span>
+          <span><i className="fas fa-search"></i></span>
         </div>
-        <div class="buttons">
-          <button class="button"><i class="fas fa-plus pr-2"></i>Add New BESTie</button>
-          <button class="button"><i class="fas fa-file-download pr-2"></i>Download As PNG</button>
+        <div className="buttons">
+          <button className="button"><i className="fas fa-plus pr-2"></i>Add New BESTie</button>
+          <button className="button"><i className="fas fa-file-download pr-2"></i>Download As PNG</button>
         </div>
-        <div class="size">
+        <div className="size">
           <div>
-            <i class="fas fa-plus"></i>
+            <i className="fas fa-plus"></i>
           </div>
           <div>
-            <i class="fas fa-minus"></i>
+            <i className="fas fa-minus"></i>
           </div>
         </div>
 
-        <div class="area"></div>
+        <div className="area"></div>
       </div>
     );
   }
