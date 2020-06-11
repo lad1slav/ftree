@@ -1,0 +1,342 @@
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: #E9F2F7;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/*FONTS STARTS*/
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #2E4E5E;
+  }
+
+  a {
+    color: #828282;
+    transition: .3s;
+  }
+
+  a:hover {
+    color: #2E4E5E; 
+    transition: .3s;
+  }
+/*FONTS ENDS*/
+
+.login {
+  position: absolute;
+  top: 10vh;
+  left: 10vw;
+  width: 80vw;
+  height: 80vh;
+  background-color: white;
+  box-shadow: 2px 3px 12px rgba(0,0,0,0.2);
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.login-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42%;
+  height: 100%;
+  background-color: #2E4E5E;
+}
+
+.login-left img {
+  margin-top: 60px;
+  width: 50%;
+  height: auto;
+}
+
+.login-right {
+  position: absolute;
+  top: 0;
+  left: 42%;
+  width: 58%;
+  height: 100%;
+  padding: 120px;
+}
+
+.login-right h1 {
+  text-align: center;
+}
+
+.login-input {
+  position: relative;
+  margin-top: 24px;
+  color: #828282;
+  font-size: 18px;
+}
+
+.login-input i {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+}
+
+.login-input input {
+  width: 100%;
+  padding: 8px 16px 8px 48px;
+  background-color: #F0F0F0;
+  border: none;
+}
+
+.proj-btn {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2E4E5E;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.main-btn {
+  padding: 8px 16px;
+  width: 100%;
+  border: 2px solid #2E4E5E;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.main-btn:hover {
+  background-color: #2E4E5E;
+  color: white;
+  transition: .3s;
+}
+
+.guest-btn {
+  padding: 8px 2px 2px;
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid #828282;
+  color: #828282;
+}
+
+.guest-btn:hover {
+  color: #2E4E5E;
+  border-bottom: 1px solid #2E4E5E;
+  transition: .3s;
+}
+
+
+/* ADDITIONAL DESIGN FOR LOGIN */
+  .circle {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: white;
+    bottom: -100px;
+    left: -50px;
+  }
+
+  .circle-2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: #F0F0F0;
+    bottom: -172px;
+    left: -203px;
+  }
+
+  .tria {
+    position: absolute;
+    top: -50px;
+    right: -60px;
+    width: 0; 
+    height: 0; 
+    border-top: 150px solid transparent;
+    border-bottom: 300px solid transparent;
+    border-left: 300px solid white;
+    transform: rotate(50deg);
+  }
+
+  .tria-2 {
+    position: absolute;
+    top: -120px;
+    right: -210px;
+    width: 0; 
+    height: 0; 
+    border-top: 150px solid transparent;
+    border-bottom: 300px solid transparent;
+    border-left: 300px solid #F0F0F0;
+    transform: rotate(50deg);
+  }
+
+/* ADDITIONAL DESIGN FOR LOGIN */
+
+.navbar {
+  background-color: white;
+  box-shadow: 2px 3px 12px rgba(0,0,0,0.2);
+}
+
+.nav-item {
+  color: #2E4E5E;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+/* SIDE BAR */
+
+  .side {
+    position: fixed;
+    top: 57px;
+    left: 0;
+    width: 12%;
+    height: calc(100vh - 57px);
+    background-color: white;
+  }
+
+  .side div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+  }
+
+  .side div:nth-of-type(2) {
+    left: 50%;
+    border-left: 1px solid #F0F0F0;
+  }
+
+  .side a {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #828282;
+    border-left: 3px solid white;
+  }
+
+  .side a:nth-of-type(4) {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    color: rgba(219, 58, 47, .8);
+  }
+
+  .side a:nth-of-type(4):hover {
+    border-left: 3px solid rgba(219, 58, 47, .8);
+    background-color: rgba(219, 58, 47, .1);
+  }
+
+  .side a.active {
+    color: #2E4E5E;
+    border-left: 3px solid #2E4E5E !important;
+  }
+
+  .side a:hover {
+    border-left: 3px solid #828282;
+    text-decoration: none;
+    background-color: rgba(46,78,94,.1);
+  }
+
+  .side i {
+    width: 40px;
+  }
+
+/* SIDE BAR */
+
+.main {
+  position: absolute;
+  top: 57px;
+  right: 0;
+  width: 88%;
+  min-height: calc(100vh - 57px);
+  background-color: #F0F0F0;
+}
+
+.search {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  box-shadow: 2px 3px 12px rgba(0,0,0,0.2);
+}
+
+.search input {
+  padding: 6px 12px;
+  border: none;
+  outline: none;
+  width: 240px;
+  font-size: 16px;
+  color: #2E4E5E;
+}
+
+.search span {
+  color: #2E4E5E;
+  padding-left: 8px;
+  padding-right: 12px;
+  cursor: pointer;
+}
+
+.buttons {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.buttons .button {
+  margin-left: 12px;
+  height: 36px;
+  padding: 6px 12px;
+  border: none;
+  background-color: white;
+  box-shadow: 2px 3px 12px rgba(0,0,0,0.2);
+  font-size: 16px;
+  font-weight: 700;
+  color: #828282;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.buttons .button:hover {
+  color: #2E4E5E;
+  box-shadow: 2px 3px 12px rgba(0,0,0,0.4);
+  transition: .3s;
+}
+
+.size {
+  position: absolute;
+  bottom: 32px;
+  right: 16px;
+  background-color: white;
+  box-shadow: 2px 3px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: .3s;
+  z-index: 1;
+}
+
+.size:hover {
+  box-shadow: 2px 3px 12px rgba(0,0,0,0.4);
+  transition: .3s;
+}
+
+.size div {
+  width: 30px;
+  height: 30px;
+  padding-top: 4px;
+  color: #828282;
+  text-align: center;
+}
+
+.size div:nth-of-type(1) {
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.size div:hover {
+  color: #2E4E5E; 
+}
+
+.area {
+  position: absolute;
+  top: 68px;
+  left: 16px;
+  width: calc(100% - 32px);
+  height: calc(100% - 68px);
+}
