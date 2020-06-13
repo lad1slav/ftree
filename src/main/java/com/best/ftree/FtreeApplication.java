@@ -1,9 +1,10 @@
 package com.best.ftree;
 
-import com.sun.istack.internal.NotNull;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+
+import javax.validation.constraints.NotNull;
 
 @SpringBootApplication
 public class FtreeApplication {
