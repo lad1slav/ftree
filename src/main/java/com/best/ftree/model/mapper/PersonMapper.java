@@ -16,6 +16,7 @@ public interface PersonMapper {
 
     @Mapping(source = "parentId", target = "parentId")
     @Mapping(source = "positions", target = "positions")
+    @Mapping(source = "img", target = "img")
     PersonDto convert(Person item);
 
     List<PersonDto> convert(List<Person> items);
