@@ -24,6 +24,8 @@ public class PersonDto implements Serializable {
 
     private String phoneNumber;
 
+    private String status;
+
     private List<SocialLinksDto> socialLinks;
 
     private List<PositionDto> positions;

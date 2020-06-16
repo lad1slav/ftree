@@ -101,6 +101,7 @@ public class Controller {
         newPerson.setEmail(person.getEmail());
         newPerson.setInviteDate(person.getInviteDate());
         newPerson.setPhoneNumber(person.getPhoneNumber());
+        newPerson.setStatus(person.getStatus());
         repository.save(newPerson);
 
         List<SocialLinks> socialLinks = new ArrayList<>();
