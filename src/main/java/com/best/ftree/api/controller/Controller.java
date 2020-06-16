@@ -19,10 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
@@ -150,15 +147,14 @@ public class Controller {
     }
 
     @RequestMapping(path = "/getimg", method = RequestMethod.GET)
-    public ResponseEntity<Resource> download(Long id) throws IOException {
+    public HttpEntity<byte[]> download(Long id) throws IOException {
         Person person = repository.getById(id);
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
-        headers.add("Pragma", "no-cache");
-        headers.add("Expires", "0");
-        ByteArrayResource resource = new ByteArrayResource(person.getImg());
+        byte[] image = person.getImg();
 
-        return ResponseEntity.ok().headers(headers).contentLength(person.getImg().length)
-                .contentType(MediaType.parseMediaType("application/octet-stream")).body(resource);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG);
+        headers.setContentLength(image.length);
+
+        return new HttpEntity<byte[]>(image, headers);
     }
 }
