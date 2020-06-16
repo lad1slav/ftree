@@ -17,12 +17,20 @@ import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,7 +95,7 @@ public class Controller {
     @Transactional
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public PersonDto createPerson(CreatePersonDto person) {
+    public PersonDto createPerson(CreatePersonDto person, @RequestParam("img") MultipartFile img) {
         Person newPerson = new Person();
 
         newPerson.setFirstName(person.getFirstName());
@@ -129,6 +137,28 @@ public class Controller {
 
         repository.save(newPerson);
 
+        try {
+            newPerson.setImg(img.getBytes());
+        } catch (IOException e)
+        {
+            System.out.println(e);
+        }
+
+        repository.save(newPerson);
+
         return mapper.convert(newPerson);
+    }
+
+    @RequestMapping(path = "/getimg", method = RequestMethod.GET)
+    public ResponseEntity<Resource> download(Long id) throws IOException {
+        Person person = repository.getById(id);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+        headers.add("Pragma", "no-cache");
+        headers.add("Expires", "0");
+        ByteArrayResource resource = new ByteArrayResource(person.getImg());
+
+        return ResponseEntity.ok().headers(headers).contentLength(person.getImg().length)
+                .contentType(MediaType.parseMediaType("application/octet-stream")).body(resource);
     }
 }

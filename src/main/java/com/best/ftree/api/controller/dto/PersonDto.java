@@ -28,5 +28,7 @@ public class PersonDto implements Serializable {
 
     private List<PositionDto> positions;
 
+    private byte[] img;
+
     private Long parentId;
 }

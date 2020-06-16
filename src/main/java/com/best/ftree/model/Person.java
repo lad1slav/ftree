@@ -48,6 +48,9 @@ public class Person implements Serializable {
     @Column(name = "parent_id", columnDefinition = "bigint")
     Long parentId;
 
+    @Column(name = "img", length = 1000)
+    private byte[] img;
+
     public Person() {
 
     }
