@@ -127,12 +127,10 @@ public class Controller {
 
         newPerson.setPositions(positions);
 
-        if(repository.getById(person.getParentId()) == null)
+        if(repository.getById(person.getParentId()) != null)
         {
-            throw new NotFoundException("Person with id " + person.getParentId() + " doesn't exist");
+            newPerson.setParentId(repository.getById(person.getParentId()).getId());
         }
-
-        newPerson.setParentId(repository.getById(person.getParentId()).getId());
 
         repository.save(newPerson);
 
