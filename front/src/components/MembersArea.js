@@ -28,6 +28,7 @@ class MembersArea extends Component {
 		document.getElementById('popup-img').src = this.state.user[0].url;
 		document.getElementById('popup-name').innerHTML = `${this.state.user[0].firstName} ${this.state.user[0].secondName}`;
 		document.getElementById('popup-status').innerHTML = `<b>${this.state.user[0].status}</b>`;
+        document.getElementById('popup-position').innerHTML = this.state.user[0].positions[0].position;
 		document.getElementById('popup-email').innerHTML = this.state.user[0].email;
 		document.getElementById('popup-phone').innerHTML = this.state.user[0].phoneNumber;
 		document.getElementById('popup-birth').innerHTML = `День народження: <b>${this.state.user[0].birthDate}</b>`;
@@ -59,6 +60,7 @@ class MembersArea extends Component {
 					<div className="col-6 popup-data">
 						<p id="popup-name" className="mb-0"></p>
 						<p id="popup-status" className="mb-4"></p>
+                        <p id="popup-position" className="mb-5"></p>
 						<p>Контактні дані:</p>
 						<p id="popup-email"></p>
 						<p id="popup-phone" className="mb-5"></p>
