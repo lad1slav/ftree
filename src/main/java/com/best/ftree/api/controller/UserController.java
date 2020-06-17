@@ -38,13 +38,13 @@ public class UserController {
 
     @GetMapping("username")
     @ResponseStatus(HttpStatus.OK)
-    public UserDto getByUsername(String username) {
-        if (repository.getByUsername(username) == null)
+    public UserDto getByUsernameAndPassword(String username, String password) {
+        if (repository.getByUsernameAndPassword(username, password) == null)
         {
             throw new NotFoundException("User with username: " + username + " doesn't exist");
         }
 
-        return mapper.convert(repository.getByUsername(username));
+        return mapper.convert(repository.getByUsernameAndPassword(username, password));
     }
 
     @Transactional

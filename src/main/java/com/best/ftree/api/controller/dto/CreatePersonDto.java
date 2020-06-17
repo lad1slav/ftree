@@ -43,6 +43,14 @@ public class CreatePersonDto implements Serializable {
 
     @NotBlank
     @Size(max = 50)
+    private String status;
+
+    @NotBlank
+    @Size(max = 50)
+    private String url;
+
+    @NotBlank
+    @Size(max = 50)
     private String phoneNumber;
 
     private List<String> socialLinks;

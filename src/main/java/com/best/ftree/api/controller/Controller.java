@@ -92,7 +92,7 @@ public class Controller {
     @Transactional
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public PersonDto createPerson(CreatePersonDto person, @RequestParam("img") MultipartFile img) {
+    public PersonDto createPerson(CreatePersonDto person) {
         Person newPerson = new Person();
 
         newPerson.setFirstName(person.getFirstName());
@@ -101,6 +101,8 @@ public class Controller {
         newPerson.setEmail(person.getEmail());
         newPerson.setInviteDate(person.getInviteDate());
         newPerson.setPhoneNumber(person.getPhoneNumber());
+        newPerson.setStatus(person.getStatus());
+        newPerson.setUrl(person.getUrl());
         repository.save(newPerson);
 
         List<SocialLinks> socialLinks = new ArrayList<>();
@@ -125,36 +127,15 @@ public class Controller {
 
         newPerson.setPositions(positions);
 
-        if(repository.getById(person.getParentId()) == null)
+        if(repository.getById(person.getParentId()) != null)
         {
-            throw new NotFoundException("Person with id " + person.getParentId() + " doesn't exist");
+            newPerson.setParentId(repository.getById(person.getParentId()).getId());
         }
-
-        newPerson.setParentId(repository.getById(person.getParentId()).getId());
 
         repository.save(newPerson);
-
-        try {
-            newPerson.setImg(img.getBytes());
-        } catch (IOException e)
-        {
-            System.out.println(e);
-        }
 
         repository.save(newPerson);
 
         return mapper.convert(newPerson);
-    }
-
-    @RequestMapping(path = "/getimg", method = RequestMethod.GET)
-    public HttpEntity<byte[]> download(Long id) throws IOException {
-        Person person = repository.getById(id);
-        byte[] image = person.getImg();
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.IMAGE_JPEG);
-        headers.setContentLength(image.length);
-
-        return new HttpEntity<byte[]>(image, headers);
     }
 }

@@ -24,11 +24,13 @@ public class PersonDto implements Serializable {
 
     private String phoneNumber;
 
+    private String status;
+
     private List<SocialLinksDto> socialLinks;
 
     private List<PositionDto> positions;
 
-    private byte[] img;
+    private String url;
 
     private Long parentId;
 }

@@ -36,6 +36,9 @@ public class Person implements Serializable {
     @Column(name = "email", length = 50)
     String email;
 
+    @Column(name = "status", length = 50)
+    String status;
+
     @Column(name = "invite_date", columnDefinition = "date")
     LocalDate inviteDate;
 
@@ -48,8 +51,8 @@ public class Person implements Serializable {
     @Column(name = "parent_id", columnDefinition = "bigint")
     Long parentId;
 
-    @Column(name = "img", length = 1000)
-    private byte[] img;
+    @Column(name = "url", length = 1000)
+    String url;
 
     public Person() {
 
