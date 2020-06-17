@@ -51,7 +51,7 @@ public class Person implements Serializable {
     @Column(name = "parent_id", columnDefinition = "bigint")
     Long parentId;
 
-    @Column(name = "img", length = 1000)
+    @Column(name = "url", length = 1000)
     String url;
 
     public Person() {
