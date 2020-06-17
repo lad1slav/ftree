@@ -15,26 +15,36 @@ class Login extends Component {
     onSubmit = this.onSubmit.bind(this);
 
     onSubmit(event){
-        fetch('http://localhost:8081/user/username?username=' + this.state.login + '&password=' + this.state.password)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        user: result
-                    });
+        if (this.state.login) {
+            if (this.state.password) {
+                fetch('http://localhost:8081/user/username?username=' + this.state.login + '&password=' + this.state.password)
+                    .then(res => res.json())
+                    .then(
+                        (result) => {
+                            this.setState({
+                                isLoaded: true,
+                                user: result
+                            });
 
-                    if (this.state.user.username === this.state.login) {
-                        this.setState({ redirect: "/family-tree" });
-                    }
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
+                            if (this.state.user.username === this.state.login) {
+                                this.setState({ redirect: "/family-tree" });
+                            } else {
+                                alert('Wrong email or password');
+                            }
+                        },
+                        (error) => {
+                            this.setState({
+                                isLoaded: true,
+                                error
+                            });
+                        }
+                    )
+            } else {
+                alert('Please, enter password');
+            }            
+        } else {
+            alert('You need to login');
+        }
 
         event.preventDefault();
     }
