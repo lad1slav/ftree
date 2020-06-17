@@ -52,7 +52,7 @@ public class Person implements Serializable {
     Long parentId;
 
     @Column(name = "img", length = 1000)
-    private byte[] img;
+    String url;
 
     public Person() {
 
