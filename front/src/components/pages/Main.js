@@ -26,7 +26,7 @@ class Main extends Component {
 
         <div className="main">
           <Router>
-            <Route path="/family-tree" component={FamilyTree}/>
+            <Route path="/family-tree" component={FamilyTree} users={this.state.users}/>
             <Route path="/members"> 
               <MembersArea users={this.state.users} />
             </Route>
