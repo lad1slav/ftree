@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CanvasComponent from './CanvasComponent';
 
 class FamilyTree extends Component {
   render() {
@@ -21,7 +22,11 @@ class FamilyTree extends Component {
           </div>
         </div>
 
-        <div className="area"></div>
+        <div className="area">
+            <div id="container">
+                <CanvasComponent users={ this.props.users }/>
+            </div>
+        </div>
       </div>
     );
   }
